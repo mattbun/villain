@@ -136,7 +136,7 @@ in
 
       labels = {
         "io.containers.autoupdate" = "registry";
-      } ++ cfg.container.labels;
+      } // cfg.container.labels;
 
       volumes =
         let

@@ -4,5 +4,6 @@
     ./homer
     ./neovim
     ./podman
+    ./traefik
   ];
 }
