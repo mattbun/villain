@@ -137,7 +137,7 @@ in
 
   config = lib.mkIf cfg.enable {
     virtualisation.oci-containers.containers.homer = {
-      image = "docker.io/b4bz/homer:latest";
+      image = "ghcr.io/bastienwirtz/homer:latest";
 
       environment = {
         TZ = config.time.timeZone;

@@ -28,7 +28,7 @@ in
     ];
 
     virtualisation.oci-containers.containers.traefik = {
-      image = "docker.io/traefik:latest";
+      image = "ghcr.io/traefik/traefik:v3";
       labels = {
         "io.containers.autoupdate" = "registry";
         "traefik.enable" = "true";
