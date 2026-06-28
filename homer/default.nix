@@ -48,6 +48,12 @@ in
       default = [ ];
     };
 
+    githubRepo = lib.mkOption {
+      description = "github repo to show in links";
+      type = lib.types.nullOr lib.types.str;
+      example = "mattbun/villain";
+    };
+
     container = {
       labels = lib.mkOption {
         type = lib.types.attrsOf lib.types.str;
@@ -243,6 +249,15 @@ in
           "${css}:/www/assets/nix-homer.css"
           "${manifest}:/www/manifest.json"
         ];
+    };
+
+    villain.homer = {
+      links = lib.mkIf (cfg.githubRepo != null) (lib.mkBefore [{
+        name = cfg.githubRepo;
+        icon = "fab fa-github";
+        url = "https://github.com/${cfg.githubRepo}";
+        target = "_blank";
+      }]);
     };
   };
 }
