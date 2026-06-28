@@ -10,7 +10,7 @@ in
 
     title = lib.mkOption {
       type = lib.types.str;
-      default = config.networking.hostName;
+      default = config.villain.name;
     };
 
     subtitle = lib.mkOption {
