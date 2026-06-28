@@ -2,7 +2,7 @@
 
 let
   cfg = config.villain.homer;
-  colorScheme = cfg.colorScheme;
+  colorScheme = config.villain.colors;
 in
 {
   options.villain.homer = {
@@ -84,10 +84,13 @@ in
           accentPrimary = lib.mkOption {
             description = "Color to use as primary accent";
             type = lib.types.str;
+            default = config.villain.colorscheme.accentPrimaryColor;
           };
+
           accentSecondary = lib.mkOption {
             description = "Color to use as secondary accent";
             type = lib.types.str;
+            default = config.villain.colorscheme.accentSecondaryColor;
           };
 
           palette = lib.mkOption {
