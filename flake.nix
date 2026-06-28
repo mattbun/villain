@@ -6,6 +6,20 @@
   };
 
   outputs = { basix, ... }: {
-    nixosModules.default = (import ./default.nix { inherit basix; });
+    nixosModules.default = {
+      imports = [
+        ./default.nix
+        (
+          { config, lib, ... }:
+          let
+            colors = config.villain.colors;
+            palette = basix.schemeData."${colors.system}"."${colors.slug}".palette;
+          in
+          {
+            villain.colors.palette = lib.mkDefault palette;
+          }
+        )
+      ];
+    };
   };
 }

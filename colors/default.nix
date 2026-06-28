@@ -1,4 +1,4 @@
-{ basix, config, lib, ... }:
+{ config, lib, ... }:
 let
   cfg = config.villain.colors;
 
@@ -92,9 +92,5 @@ in
         };
       };
     };
-  };
-
-  config = {
-    villain.colors.palette = lib.mkDefault basix.schemeData."${cfg.system}"."${cfg.slug}".palette;
   };
 }
