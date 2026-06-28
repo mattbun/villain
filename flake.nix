@@ -21,5 +21,10 @@
         )
       ];
     };
+
+    templates.default = {
+      path = ./template;
+      description = "Template for a NixOS system that uses villain";
+    };
   };
 }
