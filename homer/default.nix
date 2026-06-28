@@ -260,6 +260,11 @@ in
         url = "https://github.com/${cfg.githubRepo}";
         target = "_blank";
       }]);
+
+      sections.services = {
+        name = lib.mkDefault "Services";
+        order = lib.mkDefault (-1);
+      };
     };
   };
 }
