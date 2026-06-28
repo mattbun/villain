@@ -145,6 +145,8 @@ in
 
       labels = {
         "io.containers.autoupdate" = "registry";
+        "traefik.enable" = "true";
+        "traefik.http.routers.homer.rule" = "PathPrefix(`/`)";
       } // cfg.container.labels;
 
       volumes =
