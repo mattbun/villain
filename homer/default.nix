@@ -157,9 +157,7 @@ in
             logo = cfg.logo;
             footer = cfg.footer;
             links = cfg.links;
-            stylesheet = [
-              "assets/nix-homer.css"
-            ];
+            stylesheet = [ "assets/colors.css" ];
             services = lib.lists.sort (a: b: a.order < b.order)
               (lib.attrsets.mapAttrsToList
                 (_name: section: {
@@ -170,11 +168,11 @@ in
                 cfg.sections);
           });
 
-          css = pkgs.writeText "nix-homer.css" /* css */ ''
+          css = pkgs.writeText "colors.css" /* css */ ''
             .light {
-              --highlight-primary: ${colorScheme.accentPrimary};
-              --highlight-secondary: ${colorScheme.accentSecondary};
-              --highlight-hover: ${colorScheme.accentPrimary};
+              --highlight-primary: ${colorScheme.accentPrimaryColor};
+              --highlight-secondary: ${colorScheme.accentSecondaryColor};
+              --highlight-hover: ${colorScheme.accentPrimaryColor};
               --background: ${colorScheme.palette.base07};
               --card-background: ${colorScheme.palette.base06};
               --text: ${colorScheme.palette.base00};
@@ -190,9 +188,9 @@ in
             }
 
             .dark {
-              --highlight-primary: ${colorScheme.accentPrimary};
-              --highlight-secondary: ${colorScheme.accentSecondary};
-              --highlight-hover: ${colorScheme.accentPrimary};
+              --highlight-primary: ${colorScheme.accentPrimaryColor};
+              --highlight-secondary: ${colorScheme.accentSecondaryColor};
+              --highlight-hover: ${colorScheme.accentPrimaryColor};
               --background: ${colorScheme.palette.base00};
               --card-background: ${colorScheme.palette.base01};
               --text: ${colorScheme.palette.base07};
@@ -248,7 +246,7 @@ in
         in
         cfg.container.volumes ++ [
           "${homerConfig}:/www/assets/config.yml"
-          "${css}:/www/assets/nix-homer.css"
+          "${css}:/www/assets/colors.css"
           "${manifest}:/www/manifest.json"
         ];
     };
