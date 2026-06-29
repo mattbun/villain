@@ -11,7 +11,7 @@
       enable = true;
       subtitle = "Galactic Emperor"; # TODO
       logo = "assets/icons/logo.png";
-      volumes = [
+      container.volumes = [
         "${./homer/assets/icons}:/www/assets/icons"
       ];
     };

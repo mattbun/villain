@@ -69,7 +69,7 @@ Then configure it:
       enable = true;
       subtitle = "Galactic Emperor";
       logo = "assets/icons/logo.png";
-      volumes = [
+      container.volumes = [
         "${./homer/assets/icons}:/www/assets/icons"
       ];
     };
