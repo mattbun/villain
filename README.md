@@ -74,5 +74,8 @@ Then configure it:
       ];
     };
   };
+
+  # This option is configured but still needs to be enabled
+  system.autoUpgrade.enable = true;
 }
 ```

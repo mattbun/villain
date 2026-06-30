@@ -16,4 +16,6 @@
       ];
     };
   };
+
+  system.autoUpgrade.enable = true;
 }
