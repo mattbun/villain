@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }: {
   options.villain = {
     name = lib.mkOption {
       description = "name of the system";
@@ -29,11 +29,14 @@
       gc.automatic = lib.mkDefault true;
     };
 
-    # Update flake.lock 
-    system.autoUpgrade = {
-      flake = cfg.flakePath;
-      flags = [ "--update-input" "nixpkgs" ];
-    };
+    # Update flake.lock during autoUpgrade
+    # https://github.com/NixOS/nixpkgs/issues/349734
+    system.autoUpgrade.flake = cfg.flakePath;
+    systemd.services."nixos-upgrade".serviceConfig.ExecStartPre = (
+      pkgs.writeShellScript "update-flake" /* bash */''
+        nix flake update nixpkgs --flake ${cfg.flakePath}
+      ''
+    );
 
     # Enable git globally
     programs.git = {
