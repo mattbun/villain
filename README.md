@@ -12,9 +12,9 @@ villain is a NixOS module with common configurations used in my NixOS systems.
 
 ## Getting started
 
-### With the template
+### With the default template
 
-This repo includes a flake template:
+The default template creates a NixOS configuration flake that uses villain.
 
 ```bash
 # Create flake from template
@@ -29,6 +29,21 @@ cp /etc/nixos/hardware-configuration.nix .
 
 # nixos-rebuild switch ...
 make
+```
+
+### With the dotfiles template
+
+The `with-dotfiles` template creates a Makefile that integrates a villain NixOS configuration flake and a [mattbun/dotfiles](https://github.com/mattbun/dotfiles) home configuration flake.
+
+```bash
+# Create flake from template
+nix flake new -t github:mattbun/villain#with-dotfiles destination-dir
+
+# Open the created flake
+cd destination-dir
+
+# Create flakes under ./nixos and ./home
+make template
 ```
 
 ### By Hand

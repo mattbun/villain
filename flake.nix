@@ -22,9 +22,16 @@
       ];
     };
 
-    templates.default = {
-      path = ./template/default;
-      description = "Template for a NixOS system that uses villain";
+    templates = {
+      default = {
+        path = ./template/default;
+        description = "Template for a NixOS system that uses villain";
+      };
+
+      with-dotfiles = {
+        path = ./template/with-dotfiles;
+        description = "Template for a NixOS system with both villain and mattbun/dotfiles";
+      };
     };
   };
 }
