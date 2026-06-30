@@ -30,7 +30,10 @@
     };
 
     # Update flake.lock 
-    system.autoUpgrade.flake = cfg.flakePath;
+    system.autoUpgrade = {
+      flake = cfg.flakePath;
+      flags = [ "--update-input" "nixpkgs" ];
+    };
 
     # Enable git globally
     programs.git = {
