@@ -23,7 +23,7 @@
     };
 
     templates.default = {
-      path = ./template;
+      path = ./template/default;
       description = "Template for a NixOS system that uses villain";
     };
   };
