@@ -29,6 +29,9 @@
       gc.automatic = lib.mkDefault true;
     };
 
+    # Keep a limited number of boot menu entries to avoid filling up /boot
+    boot.loader.systemd-boot.configurationLimit = lib.mkDefault 50;
+
     # Update flake.lock during autoUpgrade
     # https://github.com/NixOS/nixpkgs/issues/349734
     system.autoUpgrade.flake = cfg.flakePath;
